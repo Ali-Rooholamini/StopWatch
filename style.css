@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body,html{
+    padding: 0%;
+    margin: 0%;
+    background-color: #72768e;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+*{
+    font-family: 'Bebas Neue', cursive;
+    box-sizing: border-box;
+}
+
+#timer p{
+    font-size: 200px;
+    color: #eef1f5;
+    margin: 0;
+    user-select: none;
+}
+
+#btns{
+    z-index: 1;
+    margin-top: 25px;
+    user-select: none;
+}
+#lapbtn{
+    margin-top: 10px;
+    position: relative;
+    top: -75px;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out , top 250ms ease-in;
+}
+#lapbtn:active{
+    background: #72768e;
+    box-shadow: inset 20px 20px 60px #616479,
+            inset -20px -20px 60px #8388a3;
+}
+#btns button , #lapbtn{
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: solid 4px #696d83;
+    color: #dfdfdf;
+    cursor: pointer;
+}
+#btns button span i{
+    font-size: 20px;
+    text-shadow: -2px 4px 15px rgb(102, 102, 102);
+}
+
+#btns button:nth-child(2){
+    width: 85px;
+    height: 85px;
+    background-color: rgb(123, 167, 35);
+    transition: 400ms ease;
+}
+#btns button:nth-child(2) span i{
+    font-size: 28px;
+    padding-left: 5px;
+}
+#btns button:last-child:active{
+    background: #72768e;
+    box-shadow: inset 20px 20px 60px #616479,
+            inset -20px -20px 60px #8388a3;
+}
+#btns button:first-child , #btns button:first-child span i{
+    transition: 200ms ease;
+}
+
