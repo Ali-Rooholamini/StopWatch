@@ -51,7 +51,7 @@ function resetTimer(){
     resetFlag = true;
     lapCheck = 0;
     for(var i in saveTimer){
-        saveTimer[i].textContent = " ";
+        saveTimer[i].textContent = defaultLapSection;
     }
 }
 
