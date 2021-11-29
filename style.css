@@ -17,6 +17,7 @@ body,html{
     box-sizing: border-box;
 }
 
+/* timer Section */
 #timer p{
     font-size: 200px;
     color: #eef1f5;
@@ -24,6 +25,7 @@ body,html{
     user-select: none;
 }
 
+/* Buttons Section */
 #btns{
     z-index: 1;
     margin-top: 25px;
@@ -76,3 +78,13 @@ body,html{
     transition: 200ms ease;
 }
 
+/* Laps Section */
+#saveTimer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: 20px;
+}
+#saveTimer span{
+    margin-top: 5px;
+}

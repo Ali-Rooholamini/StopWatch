@@ -1,13 +1,15 @@
 "use strict";
 
-let second = document.getElementById("second");
-let minute = document.getElementById("minute");
-let hour = document.getElementById("hour");
-let play_stop_btn = document.querySelector("#btns button:nth-child(2)");
-let play_stop_btn_icon = document.querySelector("#btns button:nth-child(2) span i");
-let pauseButton = document.querySelector("#btns button:first-child");
-let pauseButtonIcon = document.querySelector("#btns button:first-child span i");
-let lapBtn = document.getElementById("lapbtn");
+const second = document.getElementById("second");
+const minute = document.getElementById("minute");
+const hour = document.getElementById("hour");
+const play_stop_btn = document.querySelector("#btns button:nth-child(2)");
+const play_stop_btn_icon = document.querySelector("#btns button:nth-child(2) span i");
+const pauseButton = document.querySelector("#btns button:first-child");
+const pauseButtonIcon = document.querySelector("#btns button:first-child span i");
+const lapBtn = document.getElementById("lapbtn");
+const saveTimer = document.querySelectorAll("#saveTimer span");
+const defaultLapSection = saveTimer[0].textContent;
 let sec = 0;
 let min = 0;
 let h = 0;
@@ -15,10 +17,42 @@ let CHECK_START = 0;
 let resetFlag = false;
 let pauseFlag = false;
 let pauseClickControl = 0;
+let lapCheck = 0;
+let timer;
+let timer2;
+
+// save to Laps Section
+lapBtn.addEventListener("click" , function(){
+    switch(lapCheck){
+        case 0 :
+            saveTimer[0].textContent = `${hour.textContent} : ${minute.textContent} : ${second.textContent}`;
+            break;
+        case 1 :
+            saveTimer[1].textContent = `${hour.textContent} : ${minute.textContent} : ${second.textContent}`;
+            break;
+        case 2 :
+            saveTimer[2].textContent = `${hour.textContent} : ${minute.textContent} : ${second.textContent}`;
+            break;
+        case 3 :
+            saveTimer[3].textContent = `${hour.textContent} : ${minute.textContent} : ${second.textContent}`;
+            break;
+        case 4 :
+            saveTimer[4].textContent = `${hour.textContent} : ${minute.textContent} : ${second.textContent}`;
+            break;
+        default:
+            break;
+    }
+
+    lapCheck < 4 ? lapCheck++ : lapCheck = 0;
+});
 
 // reset Machine
 function resetTimer(){
     resetFlag = true;
+    lapCheck = 0;
+    for(var i in saveTimer){
+        saveTimer[i].textContent = " ";
+    }
 }
 
 // play and pause Machine
@@ -50,10 +84,10 @@ function startCounting(){
         }
 
         function Counting(){
-            let timer = setTimeout(function(){
+            timer = setTimeout(function(){
         
                 function addToTimer(){
-                    let timer2 = setTimeout(function(){
+                    timer2 = setTimeout(function(){
                         if(CHECK_START == 1 && resetFlag == false && pauseFlag == false){
 
                             sec++;
@@ -115,6 +149,8 @@ function startCounting(){
         lapBtn.style.opacity = "1";
         Counting();
     }else{
+        clearTimeout(timer);
+        clearTimeout(timer2);
         CHECK_START = 0;
         sec = 0;
         min = 0;
