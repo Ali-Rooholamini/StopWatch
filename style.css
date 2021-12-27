@@ -88,3 +88,15 @@ body,html{
 #saveTimer span{
     margin-top: 5px;
 }
+
+/* media querry */
+@media screen and (max-width: 700px){
+    #timer p{
+        font-size: 115px;
+    }
+}
+@media screen and (max-width: 400px){
+    #timer p{
+        font-size: 75px;
+    }
+}
